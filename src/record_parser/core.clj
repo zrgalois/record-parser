@@ -93,6 +93,13 @@
   (sort-by ->lname (comp - compare) data))
 
 ;;
+(defn format-for-console
+  [db sort-fn]
+  (->> (retrieve-records db)
+       sort-fn
+       unparse-multiple-records))
+
+;;
 ;; Entry point
 ;;
 
@@ -105,17 +112,10 @@
         files ["comma_delimited.csv" "pipe_delimited.csv" "space_delimited.csv"]
         _ (run! (partial load-file-to-datastore! db) files)]
     (println "Sorted by gender, then last name, ascending:\n")
-    (println (->> (retrieve-records db)
-                  sort-by-gender-last-name-ascending
-                  unparse-multiple-records))
+    (println (format-for-console db sort-by-gender-last-name-ascending))
     (println)
     (println "Sorted by birthdate, ascending:\n")
-    (println (->> (retrieve-records db)
-                  sort-by-birthdate-ascending
-                  unparse-multiple-records))
+    (println (format-for-console db sort-by-birthdate-ascending))
     (println)
     (println "Sorted by last-name, descending:\n")
-    (println (->> (retrieve-records db)
-                  sort-by-last-name-descending
-                  unparse-multiple-records))
-    ))
+    (println (format-for-console db sort-by-last-name-descending))))
