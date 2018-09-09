@@ -10,7 +10,6 @@
                  [org.clojure/data.csv "0.1.4"]
                  [org.clojure/data.json "0.2.6"]
                  [org.clojure/test.check "0.10.0-alpha3"]
-                 ;;[org.clojure/tools.cli "0.3.7"]
                  [clj-time "0.14.4"]
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]]
@@ -20,4 +19,5 @@
   :main record-parser.core
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [ring/ring-mock "0.3.0"]]}})
+                        [ring/ring-mock "0.3.0"]
+                        ]}})

@@ -22,7 +22,7 @@
 (defn- parse-dates-in-record [r]
   (update r 4 (partial f/parse custom-date-format)))
 
-(defn- unparse-dates-in-record [r]
+(defn unparse-dates-in-record [r]
   (update r 4 (partial f/unparse custom-date-format)))
 
 (defn parse-record
@@ -35,10 +35,6 @@
 (defn unparse-multiple-records
   [records]
   (->> records (map unparse-record) (str/join "\n")))
-
-(defn records->json-str
-  [records]
-  (->> records (map unparse-record) (json/write-str)))
 
 ;; If records become more complex, persist them as maps rather than vectors.
 (defn ->lname  [record] (nth record 0))

@@ -1,0 +1,16 @@
+<!-- Keeping this super simple for now. Just enough for you to get by if you don't have CURL available -->
+
+<div>
+    <h1>Record Parser</h1>
+    <p>Pick an option below</p>
+    <ul>
+        <li><a href='/records/gender'>Retrieve records, sorted by gender</a></li>
+        <li><a href='/records/birthdate'>Retrieve records, sorted by birthdate</a></li>
+        <li><a href='/records/name'>Retrieve records, sorted by last name</a></li>
+    </ul>
+    <p>Submit a record as a string</p>
+    <form action="/records" method="POST">
+        lastname firstname gender color birthdate<br>
+        <input type="text" name="record">
+    </form>
+</div>
