@@ -32,13 +32,13 @@
                                    core/sort-by-gender-last-name-ascending
                                    records->json-str))
   (c/GET "/records/birthdate" [] (->> rest-datastore
-                                   core/retrieve-records
-                                   core/sort-by-birthdate-ascending
-                                   records->json-str))
+                                      core/retrieve-records
+                                      core/sort-by-birthdate-ascending
+                                      records->json-str))
   (c/GET "/records/name" [] (->> rest-datastore
-                                   core/retrieve-records
-                                   core/sort-by-last-name-descending
-                                   records->json-str))
+                                 core/retrieve-records
+                                 core/sort-by-last-name-descending
+                                 records->json-str))
   (route/not-found "Not Found"))
 
 (def app

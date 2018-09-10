@@ -65,7 +65,6 @@
       (->> (line-seq rdr)
            (map parse-record)
            (run! (partial add-record! datastore))))))
-;; TODO - do we want error handling?
 
 ;;
 ;; Sorting options
@@ -99,10 +98,6 @@
 ;; Entry point
 ;;
 
-;; This uses the datastore:
-;; (but really, it doesn't need it; you could just do this with a reduce;
-;;  I was looking ahead to how I'd handle the REST bit)
-;; TODO - write it w/o the datastore, see if it is simpler that way.
 (defn -main [& args]
   (let [db (->fake-datastore)
         files ["comma_delimited.csv" "pipe_delimited.csv" "space_delimited.csv"]
